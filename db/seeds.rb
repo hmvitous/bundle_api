@@ -1,7 +1,7 @@
 events = Event.create(
   title: 'Play Soccer',
   description: 'We need more players',
-  category: 'outdoors' 
+  category: 'sports' 
 )
 
 events = Event.create(
