@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Api::EventsController < ApplicationController
   def index
     collection_events = Event.all
     if collection_events.empty?
