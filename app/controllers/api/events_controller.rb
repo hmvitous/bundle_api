@@ -1,5 +1,5 @@
 class Api::EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[create update]
 
   def index
     collection_events = Event.all
@@ -24,6 +24,12 @@ class Api::EventsController < ApplicationController
     else
       render json: { message: 'Event was NOT created.' }, status: 422
     end
+  end
+
+  def update
+    event = Event.where(id: params[:id]).first
+    event.attendees.create(user: current_user)
+    render json: { message: 'You are on the guest list!'}
   end
 
   private

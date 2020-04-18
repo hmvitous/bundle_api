@@ -5,7 +5,7 @@ RSpec.describe 'GET /api/events', type: :request do
         title: 'Celebrate easter with me!',
         description: 'Kevin is not allowed to come. Complete buzzkill',
         category: 'casual')
-      get "/api/events/#{@event.id}"
+      get "/api/events/"
     end
 
     it 'should return a valid event response' do
