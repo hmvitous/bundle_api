@@ -1,5 +1,6 @@
 class Api::EventsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate_user!, only: %i[create]
+
   def index
     collection_events = Event.all
     if collection_events.empty?
@@ -16,7 +17,7 @@ class Api::EventsController < ApplicationController
 
 
   def create
-    event = Event.create(event_params)
+    event = current_user.events.create(event_params)
 
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
