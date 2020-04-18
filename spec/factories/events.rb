@@ -4,5 +4,6 @@ FactoryBot.define do
     description { 'MyString' }
     category { 4 }
     user
+    attendee_limit { 30 }
   end
 end

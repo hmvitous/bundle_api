@@ -27,9 +27,13 @@ class Api::EventsController < ApplicationController
   end
 
   def update
-    event = Event.where(id: params[:id]).first
-    event.attendees.create(user: current_user)
-    render json: { message: 'You are on the guest list!'}
+    event = Event.find(id: params[:id])
+    if event.attendee_limit >= event.attendees.count + 1 
+      event.attendees.create(user: current_user)
+      render json: { message: 'You are on the guest list!'}, status: 200
+    else
+      render json: { error_message: 'Guest list is full...' }, status: 400
+    end
   end
 
   private
