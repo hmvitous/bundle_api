@@ -1,4 +1,5 @@
 class Api::EventsController < ApplicationController
+  before_action :authenticate
   def index
     collection_events = Event.all
     if collection_events.empty?
