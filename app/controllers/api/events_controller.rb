@@ -8,6 +8,12 @@ class Api::EventsController < ApplicationController
    end
   end
 
+  def show
+    event = Event.find(params[:id])
+    render json: event, serializer: EventListSerializer, status: 200
+  end
+
+
   def create
     event = Event.create(event_params)
 
