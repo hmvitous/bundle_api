@@ -10,15 +10,9 @@ class Api::EventsController < ApplicationController
    end
   end
 
-  def show
-    event = Event.find(params[:id])
-    render json: event, serializer: EventListSerializer, status: 200
-  end
-
-
   def create
     event = current_user.events.create(event_params)
-
+    
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
     else
@@ -28,10 +22,10 @@ class Api::EventsController < ApplicationController
 
   def update
     event = Event.find(id: params[:id])
-    if event.attendee_limit >= event.attendees.count + 1 
+    if event.attendee_limit >= event.attendees.count + 1
       event.attendees.create(user: current_user)
-      render json: { message: 'You are on the guest list!'}, status: 200
-    else
+      render json: {message: 'You are on the guest list!'}
+    else 
       render json: { error_message: 'Guest list is full...' }, status: 400
     end
   end

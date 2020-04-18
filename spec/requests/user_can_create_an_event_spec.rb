@@ -2,6 +2,7 @@ RSpec.describe 'POST /events', type: :request do
   let(:user) { create(:user) }
   let(:user_credentials) { user.create_new_auth_token }
   let(:user_headers) { { HTTP_ACCEPT: "application/json" }.merge!(user_credentials) }
+  
   describe 'POST /events' do
 
     before do
