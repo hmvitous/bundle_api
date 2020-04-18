@@ -1,4 +1,4 @@
-RSpec.describe 'GET /api/events', type: :request do
+RSpec.describe 'GET /events', type: :request do
   describe 'GET /api/events' do
     let!(:event_1) { create(:event, title: "Join me") }
     let!(:event_2) { create(:event, title: "Come play soccer") }
