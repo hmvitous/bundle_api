@@ -2,7 +2,7 @@ RSpec.describe 'POST /events', type: :request do
   describe 'POST /events' do
 
     before do
-      post '/events',
+      post '/api/events',
         params: {
           event: {
             title: 'I Just Created This',
@@ -23,7 +23,7 @@ RSpec.describe 'POST /events', type: :request do
   
   describe 'Sad Path, Event can not be created' do
     before do
-      post '/events',
+      post '/api/events',
       params: {
         event: {
           title: '',
