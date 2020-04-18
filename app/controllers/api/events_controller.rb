@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Api::EventsController < ApplicationController
   def index
     collection_events = Event.all
     if collection_events.empty?
@@ -7,6 +7,12 @@ class EventsController < ApplicationController
       render json: {events: collection_events}, status: 200
    end
   end
+
+  def show
+    event = Event.find(params[:id])
+    render json: event, serializer: EventListSerializer, status: 200
+  end
+
 
   def create
     event = Event.create(event_params)
