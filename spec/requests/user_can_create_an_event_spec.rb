@@ -10,7 +10,9 @@ RSpec.describe 'POST /events', type: :request do
         event: {
           title: 'I Just Created This',
           description: 'I dont want anyone to join this event',
-          category: 'casual'
+          category: 'casual',
+          user_id: user.id,
+          attendee_limit: 4
         }
       },
       headers: user_headers

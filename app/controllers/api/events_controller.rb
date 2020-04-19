@@ -11,7 +11,7 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    event = current_user.events.create(event_params)
+    event = Event.create(event_params)
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
     else
@@ -32,6 +32,6 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :category)
+    params.require(:event).permit(:title, :description, :category, :user_id, :attendee_limit)
   end
 end
