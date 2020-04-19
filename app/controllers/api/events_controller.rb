@@ -12,7 +12,6 @@ class Api::EventsController < ApplicationController
 
   def create
     event = current_user.events.create(event_params)
-    
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
     else
