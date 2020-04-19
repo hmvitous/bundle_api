@@ -7,7 +7,7 @@ class Api::EventsController < ApplicationController
       render json: { message: 'No events present' }, status: 404
     else
       render json: {events: collection_events}, status: 200
-   end
+    end
   end
 
   def create
