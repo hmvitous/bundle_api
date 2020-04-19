@@ -61,7 +61,7 @@ RSpec.describe 'PUT /api/events/:id', type: :request do
       end
 
       it 'returns error message' do 
-        expect(response_json['error_message']).to eq "We are experiencing internal errors. Please refresh the page and contact support. Couldn't find Event with 'id'={:id=>\"99\"}"
+        expect(response_json['error_message']).to eq "We are experiencing internal errors. Please refresh the page and contact support. Couldn't find Event with 'id'=99"
       end
     end
   end

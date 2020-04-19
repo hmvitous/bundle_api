@@ -11,7 +11,7 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(event_params)
+    event = current_user.events.create(event_params)
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
     else
@@ -20,7 +20,7 @@ class Api::EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(id: params[:id])
+    event = Event.find(params[:id])
     if event.attendee_limit >= event.attendees.count + 1
       event.attendees.create(user: current_user)
       render json: {message: 'You are on the guest list!'}
