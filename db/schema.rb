@@ -47,9 +47,6 @@ ActiveRecord::Schema.define(version: 2020_04_18_142805) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "name"
-    t.string "nickname"
-    t.string "image"
     t.string "email"
     t.json "tokens"
     t.integer "sign_in_count", default: 0
