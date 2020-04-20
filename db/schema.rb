@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_142805) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "email"
+    t.boolean "authenticated"
     t.json "tokens"
     t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
