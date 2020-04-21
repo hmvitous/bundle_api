@@ -55,7 +55,7 @@ RSpec.describe 'POST /auth/sign_in', type: :request do
     before do
       post '/api/auth/sign_in',
            params: {
-             email: 'wrong@email.com',
+             email: 'wrong email',
              password: user.password
            },
            headers: headers
