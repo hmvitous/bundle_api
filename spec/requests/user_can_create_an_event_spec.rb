@@ -4,8 +4,8 @@ RSpec.describe 'POST /events', type: :request do
   let(:user_headers) { { HTTP_ACCEPT: "application/json" }.merge!(user_credentials) }
   
   let(:visitor) { create(:user, authenticated: false)}
-  let(:visitor_headers) {{ HTTP_ACCEPT: "application/json" }
-}
+  let(:visitor_headers) {{ HTTP_ACCEPT: "application/json" }}
+
   describe 'POST /api/events' do
     before do
       post '/api/events',
@@ -71,9 +71,8 @@ RSpec.describe 'POST /events', type: :request do
       expect(response.status).to eq 401
     end
 
-    it 'returns not authorize message ' do
-      expect(response_json['message']).to eq 'You need to login before creating an event.'
+    it 'returns not authorized message ' do
+      expect(response_json['errors'].first).to eq 'You need to sign in or sign up before continuing.'
     end
   end
-
 end

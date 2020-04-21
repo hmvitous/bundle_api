@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update]
-
+  
   def index
     collection_events = Event.all
     if collection_events.empty?
