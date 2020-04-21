@@ -15,7 +15,7 @@ To install all the gems in this app run ```bundle install``` in your terminal, <
 Next run ```rails db:create```<br>
 Then ```rails db:migrate```<br> In the terminal to create and migrate the databases.
 
-##Running the tests<br>
+## Running the tests<br>
 
 ```rspec``` in terminal should run all the tests included into the code<br>
 
@@ -41,7 +41,7 @@ Daniel Bryant<br>
 Anish Kanswal<br>
 Lautaro<br>
 
-License<br>
+## License<br>
 This project is licensed under the MIT License - see the LICENSE.md file for details<br>
 
-Acknowledgments<br>
+## Acknowledgments<br>
