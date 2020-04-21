@@ -21,11 +21,12 @@ Then ```rails db:migrate```<br> In the terminal to create and migrate the databa
 
 Many tests should run<br>
 These tests check many features within app including...<br>
-* a user has to be logged in to create an event<br>
-* a user can join an event that has been created<br>
-* a user can view all events<br>
-* events will display based on location<br>
+  * a user has to be logged in to create an event<br>
+  * a user can join an event that has been created<br>
+  * a user can view all events<br>
+  * events will display based on location<br>
 and more to be added<br>
+
 These tests are important in giving us knowledge of how the app is running and that<br>
 the app is behaving the way that was intended.<br>
 
