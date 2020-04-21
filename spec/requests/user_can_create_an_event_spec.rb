@@ -48,7 +48,7 @@ RSpec.describe 'POST /events', type: :request do
     end
 
     it 'displays error message' do
-      expect(JSON.parse(response.body)['message']).to eq 'Event was NOT created.'
+      expect(JSON.parse(response.body)['message']).to eq 'Make sure the input fields are not empty.'
     end
   end
 

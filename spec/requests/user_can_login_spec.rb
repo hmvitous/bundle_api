@@ -9,7 +9,6 @@ RSpec.describe 'POST /auth/sign_in', type: :request do
         'email' => user.email,
         'provider' => 'email',
         'allow_password_change' => false,
-        'authenticated' => true
       }
     }
   end

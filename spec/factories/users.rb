@@ -7,6 +7,5 @@ FactoryBot.define do
     email { generate :email }
     password { "MyString" }
     password_confirmation { "MyString" }
-    authenticated { true }
   end
 end

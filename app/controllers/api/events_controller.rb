@@ -15,7 +15,7 @@ class Api::EventsController < ApplicationController
     if event.persisted?
       render json: { message: 'Event was successfully created!' }, status: 200
     else
-      render json: { message: 'Event was NOT created.' }, status: 422
+      render json: { message: 'Make sure the input fields are not empty.' }, status: 422
     end
   end
 
