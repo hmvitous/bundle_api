@@ -3,6 +3,9 @@ RSpec.describe 'POST /events', type: :request do
   let(:user_credentials) { user.create_new_auth_token }
   let(:user_headers) { { HTTP_ACCEPT: "application/json" }.merge!(user_credentials) }
   
+  let(:visitor) { create(:user, authenticated: false)}
+  let(:visitor_headers) {{ HTTP_ACCEPT: "application/json" }}
+
   describe 'POST /api/events' do
     before do
       post '/api/events',
@@ -45,7 +48,31 @@ RSpec.describe 'POST /events', type: :request do
     end
 
     it 'displays error message' do
-      expect(JSON.parse(response.body)['message']).to eq 'Event was NOT created.'
+      expect(JSON.parse(response.body)['message']).to eq 'Make sure the input fields are not empty.'
+    end
+  end
+
+  describe 'Un-authenticated user tries to create an event' do
+    before do
+      post '/api/events',
+      params: {
+        event: {
+          title: 'Im not allowed to make this',
+          description: 'It shouldnt exist',
+          category: 'games',
+          user_id: '',
+          attendee_limit: 4
+        }      
+      },
+      headers: visitor_headers
+    end
+    
+    it 'returns a 401 response status' do
+      expect(response.status).to eq 401
+    end
+
+    it 'returns not authorized message ' do
+      expect(response_json['errors'].first).to eq 'You need to sign in or sign up before continuing.'
     end
   end
 end
