@@ -6,7 +6,7 @@ RSpec.describe 'PUT /api/events/:id', type: :request do
   let(:user_credentials) { attendee.create_new_auth_token }
   let(:user_headers) { { HTTP_ACCEPT: "application/json" }.merge!(user_credentials) }
 
-  describe 'User can attend event successfully' do
+  describe 'Authenticated user can attend event successfully' do
     before do
       put "/api/events/#{event.id}", headers: user_headers
     end
@@ -21,6 +21,7 @@ RSpec.describe 'PUT /api/events/:id', type: :request do
   end
 
   describe 'unsuccessfull when' do
+    
     describe 'user is not authenticated' do
       before do
         put "/api/events/#{event.id}"
