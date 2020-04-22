@@ -1,7 +1,7 @@
 [![Build Status](https://semaphoreci.com/api/v1/hmvitous/bundle_api-2/branches/development/badge.svg)](https://semaphoreci.com/hmvitous/bundle_api-2)
 [![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/bundle_api/badge.svg?branch=development)](https://coveralls.io/github/CraftAcademy/bundle_api?branch=development)<br>
 
-## Friend_Z0ne<br>
+## PLusYou<br>
 
 This is a Ruby on Rails Api that helps you meet new friends by creating events for people to participate in.
 
