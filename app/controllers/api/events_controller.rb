@@ -31,6 +31,10 @@ class Api::EventsController < ApplicationController
 
   private
 
+  def address
+    [ city, country ].compact.join(', ')
+  end
+
   def event_params
     params.require(:event).permit(:title, :description, :category, :user_id, :attendee_limit)
   end

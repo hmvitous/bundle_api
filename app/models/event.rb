@@ -3,4 +3,5 @@ class Event < ApplicationRecord
   enum category: [ :outdoors, :sports, :food, :games, :casual ]
   belongs_to :user
   has_many :attendees
+  geocoded_by :address
 end
