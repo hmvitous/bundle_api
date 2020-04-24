@@ -64,5 +64,22 @@ RSpec.describe 'PUT /api/events/:id', type: :request do
         expect(response_json['error_message']).to eq "We are experiencing internal errors. Please refresh the page and contact support. Couldn't find Event with 'id'=99"
       end
     end
+
+    describe 'user has already joined event' do
+      let!(:current_user_attendee) { create(:attendee, event: event) } 
+
+      before do
+        put "/api/events/#{event.id}", headers: user_headers
+      end
+
+      it 'returns 400 response status' do
+        binding.pry
+        expect(response.status).to eq 400
+      end
+
+      it 'returns error message' do
+        expect(response_json['error_message']).to eq "You have already joined this event"
+      end
+    end
   end
 end
